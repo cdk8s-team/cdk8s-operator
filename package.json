@@ -18,7 +18,7 @@
     "test": "yarn eslint && rm -fr lib/ && jest --passWithNoTests --updateSnapshot",
     "test:watch": "jest --watch",
     "test:update": "jest --updateSnapshot",
-    "cdk8s-pack": "yarn -s compile && docker build -t webservice-operator .",
+    "cdk8s-pack": "yarn -s compile && docker build -t eladb/cdk8s-pack-prototype .",
     "cdk8s-server": "node lib/cdk8s-server.js"
   },
   "author": {

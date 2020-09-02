@@ -12,7 +12,7 @@ const project = new TypeScriptProject({
   ],
 });
 
-project.addScript('cdk8s-pack', 'yarn -s compile', `docker build -t ${name} .`);
+project.addScript('cdk8s-pack', 'yarn -s compile', `docker build -t eladb/cdk8s-pack-prototype .`);
 project.addScript('cdk8s-server', 'node lib/cdk8s-server.js');
 
 project.synth();

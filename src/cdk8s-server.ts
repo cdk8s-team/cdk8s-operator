@@ -11,9 +11,9 @@ import * as stream from 'stream';
 
 const config = yaml.parse(fs.readFileSync('cdk8s.yaml', 'utf-8'));
 
-const command = config.app;
+const command = config.operator;
 if (!command) {
-  throw new Error('cdk8s.yaml is missing an "app" attribute');
+  throw new Error('cdk8s.yaml is missing an "operator" attribute');
 }
 
 // needed in docker
@@ -63,6 +63,6 @@ server.listen(8080);
 
 console.error('cdk8s-server listening on 8080');
 console.error('- Request body should include a single k8s resource in json');
-console.error(`- Request will be piped through STDIN to ${command}`)
+console.error(`- Request will be piped through STDIN to "${command}"`)
 console.error('- Response is the STDOUT and expected to be a multi-resource yaml manifest');
 
