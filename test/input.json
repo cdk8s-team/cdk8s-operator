@@ -1,0 +1,13 @@
+{
+  "apiVersion": "v1",
+  "kind": "WebService",
+  "group": "org.cdk8s.samples",
+  "metadata": {
+    "name": "my-web-service"
+  },
+  "spec": {
+    "image": "paulbouwer/hello-kubernetes",
+    "containerPort": 8080,
+    "servicePort": 80
+  }
+}
