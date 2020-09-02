@@ -3,6 +3,7 @@ const { TypeScriptProject } = require('projen');
 const name = 'webservice-operator';
 const project = new TypeScriptProject({
   name: name,
+  releaseEveryCommit: false,
   deps: [
     'cdk8s',
     'cdk8s-plus',
