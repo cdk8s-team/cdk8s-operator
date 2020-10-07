@@ -26,3 +26,8 @@ spec:
             properties:
               storageGB:
                 type: integer
+              providerConfigRef:
+                type: object
+                properties:
+                  name:
+                    type: string

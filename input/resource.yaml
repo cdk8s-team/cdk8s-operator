@@ -4,3 +4,5 @@ metadata:
   name: my-composite
 spec:
   storageGB: 10
+  providerConfigRef:
+    name: example

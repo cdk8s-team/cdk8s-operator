@@ -7,27 +7,42 @@ import * as awsig from './imports/ec2.aws.crossplane.io/internetgateway';
 import * as awsrt from './imports/ec2.aws.crossplane.io/routetable';
 import * as awssg from './imports/ec2.aws.crossplane.io/securitygroup';
 
+// NOTE(muvaf): This can be imported via cdk8s import
+
 export interface CompositePostgreSQLInstanceSpec {
   /**
    * The amount of storage in GB.
    */
   readonly storageGB: number;
+
+  /**
+   * Reference to the ProviderConfig object.
+   */
+  readonly providerConfigRef: ProviderConfigReference;
+}
+
+export interface ProviderConfigReference {
+  /**
+   * Name of the ProviderConfig object.
+   */
+  readonly name: string;
 }
 
 export class DatabaseComposition extends Construct {
   constructor(scope: Construct, id: string, options: CompositePostgreSQLInstanceSpec) {
     super(scope, id);
 
-    let region = "us-west-2" 
+    let region = "us-west-2"
     
-    const vpc = new awsvpc.Vpc(scope, "my-vpc", {
+    const vpc = new awsvpc.Vpc(scope, `vpc`, {
       spec: {
         forProvider: {
           region: region,
           cidrBlock: "192.168.0.0/16",
           enableDnsHostNames: true,
           enableDnsSupport: true,
-        }
+        },
+        providerConfigRef: { name: options.providerConfigRef.name },
       }
     });
 
@@ -41,7 +56,8 @@ export class DatabaseComposition extends Construct {
           vpcIdRef: {
             name: vpc.name,
           },
-        }
+        },
+        providerConfigRef: { name: options.providerConfigRef.name },
       }
     }),
     new awssubnet.Subnet(scope, "subnet-2", {
@@ -65,31 +81,34 @@ export class DatabaseComposition extends Construct {
           vpcIdRef: {
             name: vpc.name,
           },
-        }
+        },
+        providerConfigRef: { name: options.providerConfigRef.name },
       }
     })]
 
-    const dbsubnetgroup = new awsdbsubnetgroup.DbSubnetGroup(scope, "my-dbsubnetgroup", {
+    const dbsubnetgroup = new awsdbsubnetgroup.DbSubnetGroup(scope, "dbsubnetgroup", {
       spec: {
         forProvider: {
           region: region,
           description: "the db subnet group for my cdk8s example",
-        }
+        },
+        providerConfigRef: { name: options.providerConfigRef.name },
       }
     })
 
-    const ig = new awsig.InternetGateway(scope, "my-ig", {
+    const ig = new awsig.InternetGateway(scope, "ig", {
       spec: {
         forProvider: {
           region: region,
           vpcIdRef: {
             name: vpc.name,
           }
-        }
+        },
+        providerConfigRef: { name: options.providerConfigRef.name },
       }
     })
 
-    const rt = new awsrt.RouteTable(scope, "my-rt", {
+    const {} = new awsrt.RouteTable(scope, "routetable", {
       spec: {
         forProvider: {
           region: region,
@@ -112,11 +131,12 @@ export class DatabaseComposition extends Construct {
               subnetIdRef: { name: subnets[2].name }
             },
           ],
-        }
+        },
+        providerConfigRef: { name: options.providerConfigRef.name },
       }
     })
 
-    const sg = new awssg.SecurityGroup(scope, "my-sg", {
+    const sg = new awssg.SecurityGroup(scope, "sg", {
       spec: {
         forProvider: {
           region: region,
@@ -131,16 +151,28 @@ export class DatabaseComposition extends Construct {
               ipRanges: [ { cidrIp: "0.0.0.0/0", description: "Everywhere" } ]
             }
           ]
-        }
+        },
+        providerConfigRef: { name: options.providerConfigRef.name },
       }
     })
-
+    // NOTE(muvaf): Add each subnet to RouteTable as an association.
+    // Cannot access spec of RouteTable object for some reason.
     // subnets.forEach(element => {
-    //   // Add each subnet to RouteTable as an association.
-    //   // Cannot access spec of RouteTable object for some reason.
+    //
     // });
 
-    const rds = new awsrds.RdsInstance(scope, "my-rds", {
+    // NOTE: I would like to loop over all objects and add the same
+    // providerConfigRef but I cannot access the properties other than name.
+
+    // NOTE: I want to use the final name of the RDSInstance in
+    // `writeConnectionSecretToRef.name`. Is there a way to access like
+    // this.name?
+
+    // TODO: This app needs to manage the credentials in a way that they
+    // will be present in
+    // CompositePostgreSQLInstance.spec.writeConnectionSecretRef
+    // so that it can be propagated to the namespace of the Claim by Crossplane.
+    const {} = new awsrds.RdsInstance(scope, "rds", {
       spec: {
         forProvider: {
           allocatedStorage: options.storageGB,
@@ -159,12 +191,9 @@ export class DatabaseComposition extends Construct {
         writeConnectionSecretToRef: {
           name: "my-rds-connection",
           namespace: "crossplane-system",
-        }
+        },
+        providerConfigRef: { name: options.providerConfigRef.name },
       }
     })
-
-    // All variables have to be used, otherwise it doesn't compile.
-    console.log(`RDS name: ${rds.name}`)
-    console.log(`RouteTable name: ${rt.name}`)
   }
 }
