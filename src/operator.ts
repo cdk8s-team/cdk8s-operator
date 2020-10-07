@@ -13,7 +13,6 @@ export interface ICustomResourceProviderHandler {
 }
 
 export interface CustomResourceProvider {
-  readonly group: string;
   readonly kind: string;
 
   /**
@@ -59,7 +58,7 @@ export class Operator extends App {
 
     const chart = new Chart(this, name, { namespace });
 
-    console.error(`Synthesizing ${input.group}.${input.kind}/${input.apiVersion}`);
+    console.error(`Synthesizing ${input.kind}.${input.apiVersion}`);
     provider.handler.apply(chart, name, spec);
 
     super.synth();
@@ -70,8 +69,8 @@ export class Operator extends App {
     }
   }
 
-  private findProvider(input: { group: string, kind: string, apiVersion: string }) {
-    const { apiVersion, kind, group } = input;
+  private findProvider(input: { kind: string, apiVersion: string }) {
+    const { apiVersion, kind } = input;
 
     if (!apiVersion) {
       throw new Error('"apiVersion" is required');
@@ -81,17 +80,13 @@ export class Operator extends App {
       throw new Error('"kind" is required');
     }
 
-    if (!group) {
-      throw new Error('"group" is required');
-    }
-
     for (const p of this.providers) {
-      if (p.apiVersion === apiVersion && p.kind === kind && p.group === group) {
+      if (p.apiVersion === apiVersion && p.kind === kind) {
         return p;
       }
     }
 
-    throw new Error(`No custom resource provider found for ${group}.${kind}/${apiVersion}`);
+    throw new Error(`No custom resource provider found for ${kind}.${apiVersion}`);
   }
 }
 

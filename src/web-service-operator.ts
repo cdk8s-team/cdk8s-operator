@@ -5,8 +5,7 @@ const cr = new Operator();
 
 cr.addProvider({
   kind: 'WebService',
-  apiVersion: 'v1',
-  group: 'org.cdk8s.samples',
+  apiVersion: 'samples.cdk8s.org/v1alpha1',
   // schema: ...
   handler: {
     apply: (scope, name, spec) => new WebService(scope, name, spec),
