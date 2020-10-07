@@ -26,8 +26,7 @@ const cr = new Operator();
 
 cr.addProvider({
   kind: 'WebService',
-  apiVersion: 'v1',
-  group: 'org.cdk8s.samples',
+  apiVersion: 'samples.cdk8s.org/v1alpha1',
   // schema: ...
   handler: {
     apply: (scope, name, spec) => new WebService(scope, name, spec),
@@ -41,9 +40,8 @@ To use this operator, create an `input.json` file, e.g:
 
 ```json
 {
-  "apiVersion": "v1",
+  "apiVersion": "samples.cdk8s.org/v1alpha1",
   "kind": "WebService",
-  "group": "org.cdk8s.samples",
   "metadata": {
     "name": "my-web-service"
   },
