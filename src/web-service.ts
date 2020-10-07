@@ -1,67 +1,85 @@
 import { Construct } from 'constructs';
-import * as plus from 'cdk8s-plus';
+import * as awsvpc from './imports/ec2.aws.crossplane.io/vpc';
+import * as awssubnet from './imports/ec2.aws.crossplane.io/subnet';
+import * as awsrds from './imports/database.aws.crossplane.io/rdsinstance';
 
-export interface WebServiceOptions {
+export interface CompositePostgreSQLInstanceSpec {
   /**
-   * The container image
+   * The amount of storage in GB.
    */
-  readonly image: string;
-
-  /**
-   * Number of replicas
-   * @default 1
-   */
-  readonly replicas?: number;
-
-  /**
-   * Container port
-   * @default - no ports are exposed
-   */
-  readonly containerPort?: number;
-
-  /**
-   * Service port (required `containerPort` to be defined)
-   * @default - deployment is not exposed via a service
-   */
-  readonly servicePort?: number;
-
-  /**
-   * The type of service to expose (`servicePort` must be defined).
-   * @default ServiceType.CLUSTER_IP
-   */
-  readonly serviceType?: plus.ServiceType;
+  readonly storageGB: number;
 }
 
-export class WebService extends Construct {
-  constructor(scope: Construct, id: string, options: WebServiceOptions) {
+export class DatabaseComposition extends Construct {
+  constructor(scope: Construct, id: string, options: CompositePostgreSQLInstanceSpec) {
     super(scope, id);
-
-    const dep = new plus.Deployment(this, 'deployment', {
+    
+    const vpc = new awsvpc.Vpc(scope, "my-vpc", {
       spec: {
-        replicas: options.replicas,
-      },
-    });
-
-    const container = new plus.Container({
-      image: options.image,
-      port: options.containerPort,
-    });
-
-    dep.spec.podSpecTemplate.addContainer(container);
-
-    if (options.serviceType && !options.servicePort) {
-      throw new Error('"servicePort" must be defined is "serviceType" is defined');
-    }
-
-    if (options.servicePort) {
-      if (!options.containerPort) {
-        throw new Error('"containerPort" is required if "servicePort" is defined');
+        forProvider: {
+          region: "us-west-2",
+          cidrBlock: "192.168.0.0/16",
+          enableDnsHostNames: true,
+          enableDnsSupport: true,
+        }
       }
+    });
 
-      dep.expose({
-        port: options.servicePort,
-        serviceType: options.serviceType,
-      });
-    }
+    const subnets: awssubnet.Subnet[] = [
+    new awssubnet.Subnet(scope, "subnet-1", {
+      spec: {
+        forProvider: {
+          region: "us-west-2",
+          cidrBlock: "192.168.64.0/18",
+          availabilityZone: "us-west-2a",
+          vpcIdRef: {
+            name: vpc.name,
+          },
+        }
+      }
+    }),
+    new awssubnet.Subnet(scope, "subnet-2", {
+      spec: {
+        forProvider: {
+          region: "us-west-2",
+          cidrBlock: "192.168.128.0/18",
+          availabilityZone: "us-west-2b",
+          vpcIdRef: {
+            name: vpc.name,
+          },
+        }
+      }
+    }),
+    new awssubnet.Subnet(scope, "subnet-3", {
+      spec: {
+        forProvider: {
+          region: "us-west-2",
+          cidrBlock: "192.168.192.0/18",
+          availabilityZone: "us-west-2c",
+          vpcIdRef: {
+            name: vpc.name,
+          },
+        }
+      }
+    })]
+
+    const rds = new awsrds.RdsInstance(scope, "my-rds", {
+      spec: {
+        forProvider: {
+          allocatedStorage: options.storageGB,
+          region: "us-west-2",
+          dbInstanceClass: "db.t2.small",
+          engine: "postgres",
+          engineVersion: "9.6",
+          publiclyAccessible: true,
+          skipFinalSnapshotBeforeDeletion: true,
+          masterUsername: "admin",
+        },
+        writeConnectionSecretToRef: {
+          name: "my-rds-connection",
+          namespace: "crossplane-system",
+        }
+      }
+    })
   }
 }

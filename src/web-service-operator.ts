@@ -1,4 +1,4 @@
-import { WebService } from './web-service';
+import { DatabaseComposition } from './web-service';
 import { Operator } from './operator'; // <-- this will be in cdk8s
 
 const cr = new Operator();
@@ -8,7 +8,7 @@ cr.addProvider({
   apiVersion: 'samples.cdk8s.org/v1alpha1',
   // schema: ...
   handler: {
-    apply: (scope, name, spec) => new WebService(scope, name, spec),
+    apply: (scope, name, spec) => new DatabaseComposition(scope, name, spec),
   },
 })
 
