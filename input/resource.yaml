@@ -1,0 +1,6 @@
+apiVersion: database.example.org/v1alpha1
+kind: CompositePostgreSQLInstance
+metadata:
+  name: my-composite
+spec:
+  storageGB: 10
