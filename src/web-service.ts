@@ -1,5 +1,5 @@
-import { Construct } from 'constructs';
 import * as plus from 'cdk8s-plus';
+import { Construct } from 'constructs';
 
 export interface WebServiceOptions {
   /**

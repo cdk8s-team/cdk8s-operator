@@ -1,5 +1,5 @@
-import { WebService } from './web-service';
 import { Operator } from './operator'; // <-- this will be in cdk8s
+import { WebService } from './web-service';
 
 const cr = new Operator();
 
@@ -10,6 +10,6 @@ cr.addProvider({
   handler: {
     apply: (scope, name, spec) => new WebService(scope, name, spec),
   },
-})
+});
 
 cr.synth();

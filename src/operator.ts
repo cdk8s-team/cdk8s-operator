@@ -1,10 +1,10 @@
 import * as fs from 'fs';
-import * as path from 'path';
 import * as os from 'os';
+import * as path from 'path';
 
 
-import { Construct } from 'constructs';
 import { App, Chart } from 'cdk8s';
+import { Construct } from 'constructs';
 
 export interface ICustomResourceProviderHandler {
   // readonly schema: any;
@@ -69,7 +69,7 @@ export class Operator extends App {
     }
   }
 
-  private findProvider(input: { kind: string, apiVersion: string }) {
+  private findProvider(input: { kind: string; apiVersion: string }) {
     const { apiVersion, kind } = input;
 
     if (!apiVersion) {

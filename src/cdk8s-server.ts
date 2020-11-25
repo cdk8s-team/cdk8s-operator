@@ -3,11 +3,11 @@
 // request body should include an input manifest for a single resource
 // response will include the synthesized output manifest
 
-import * as http from 'http';
 import { spawn } from 'child_process';
-import * as yaml from 'yaml';
 import * as fs from 'fs';
+import * as http from 'http';
 import * as stream from 'stream';
+import * as yaml from 'yaml';
 
 const config = yaml.parse(fs.readFileSync('cdk8s.yaml', 'utf-8'));
 
@@ -27,7 +27,7 @@ const server = http.createServer((req, res) => {
   req.pipe(input);
   input.on('close', () => {
     const child = spawn(`${command} /tmp/input.json`, {
-      stdio: [ 'pipe', 'pipe', 'pipe' ],
+      stdio: ['pipe', 'pipe', 'pipe'],
       shell: true,
     });
 
@@ -63,6 +63,6 @@ server.listen(8080);
 
 console.error('cdk8s-server listening on 8080');
 console.error('- Request body should include a single k8s resource in json');
-console.error(`- Request will be piped through STDIN to "${command}"`)
+console.error(`- Request will be piped through STDIN to "${command}"`);
 console.error('- Response is the STDOUT and expected to be a multi-resource yaml manifest');
 
