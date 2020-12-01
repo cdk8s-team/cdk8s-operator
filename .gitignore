@@ -41,6 +41,9 @@ junit.xml
 /coverage
 /lib
 /dist
+.jsii
+tsconfig.json
+!/.projen/tasks.json
 !/package.json
 !/.npmignore
 !/LICENSE
@@ -53,7 +56,7 @@ junit.xml
 !/.mergify.yml
 !/.github/dependabot.yml
 !/.github/pull_request_template.md
-!/tsconfig.json
 !/src
 !/tsconfig.jest.json
 !/.eslintrc.json
+!/API.md

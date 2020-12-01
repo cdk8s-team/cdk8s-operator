@@ -1,16 +1,19 @@
-# cdk8s-pack-prototype
+# cdk8s-operator
 
-This repo includes a prototype for two new `cdk8s` commands (`cdk8s-server` and
-`cdk8s-pack`) and a new construct called `cdk8s.Operator`. These building blocks
-can be used to create a docker image that accepts HTTP requests with a
-Kubernetes resource JSON and returns the synthesized output as a response.
+> Create Kubernetes CRD Operators using CDK8s Constructs
 
-## `cdk8s.Operator`
+This is a multi-language (jsii) library and a command-line tool that allows you
+to create Kubernetes operators for CRDs (Custom Resource Definitions) using
+CDK8s.
 
-This construct can be used to create "CDK Operators" which are CDK apps that
-accept an input from a file (or STDIN) with a Kubernetes resource definition,
-instantiates a custom constructs with the `spec` of this input and outputs
-the resulting manifest.
+## Getting Started
+
+Let's create our first CRD served by a CDK8s construct using TypeScript.
+
+The `Operator` construct can be used to create "CDK8s Operators" which are CDK8s
+apps which accept an input from a file (or STDIN) with a Kubernetes manifest,
+instantiates a custom construct with the `spec` of this input and emits the
+resulting manifest to a file (or STDOUT).
 
 In the following example, an operator is created to handle resource of
 `org.cdk8s.samples.WebService` kind. As you can see, a single operator can
@@ -22,9 +25,9 @@ handle multiple resource kinds.
 import { WebService } from './web-service';
 import { Operator } from './operator'; // <-- this will be in cdk8s
 
-const cr = new Operator();
+const operator = new Operator();
 
-cr.addProvider({
+operator.addProvider({
   kind: 'WebService',
   apiVersion: 'samples.cdk8s.org/v1alpha1',
   // schema: ...
@@ -33,7 +36,7 @@ cr.addProvider({
   },
 })
 
-cr.synth();
+operator.synth();
 ```
 
 To use this operator, create an `input.json` file, e.g:

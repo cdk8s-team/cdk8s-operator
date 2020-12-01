@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`operator with a single provider 1`] = `
+Array [
+  Object {
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": Object {
+      "name": "my-pods-pod-0-c82b84ba",
+    },
+    "spec": Object {
+      "containers": Array [
+        Object {
+          "image": "paulbouwer/hello-kubernetes",
+        },
+      ],
+    },
+  },
+  Object {
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": Object {
+      "name": "my-pods-pod-1-c8741f46",
+    },
+    "spec": Object {
+      "containers": Array [
+        Object {
+          "image": "paulbouwer/hello-kubernetes",
+        },
+      ],
+    },
+  },
+  Object {
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": Object {
+      "name": "my-pods-pod-2-c820d644",
+    },
+    "spec": Object {
+      "containers": Array [
+        Object {
+          "image": "paulbouwer/hello-kubernetes",
+        },
+      ],
+    },
+  },
+  Object {
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": Object {
+      "name": "my-pods-pod-3-c8c7ccdb",
+    },
+    "spec": Object {
+      "containers": Array [
+        Object {
+          "image": "paulbouwer/hello-kubernetes",
+        },
+      ],
+    },
+  },
+  Object {
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": Object {
+      "name": "my-pods-pod-4-c81f2857",
+    },
+    "spec": Object {
+      "containers": Array [
+        Object {
+          "image": "paulbouwer/hello-kubernetes",
+        },
+      ],
+    },
+  },
+]
+`;

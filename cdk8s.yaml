@@ -1,2 +1,2 @@
-language: typescript
-operator: node lib/web-service-operator.js
+operator: node test/fixtures/echo-app.js
+

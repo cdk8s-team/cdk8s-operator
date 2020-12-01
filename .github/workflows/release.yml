@@ -9,16 +9,16 @@ jobs:
       CI: "true"
     steps:
       - uses: actions/checkout@v2
-      - run: yarn install --frozen-lockfile
-      - run: yarn projen
-      - name: Anti-tamper check
-        run: git diff --exit-code
+      - run: yarn install --check-files --frozen-lockfile
+      - run: npx projen
+      - run: git diff --exit-code
+        name: Anti-tamper check
       - name: Set git identity
         run: |-
           git config user.name "Auto-bump"
           git config user.email "github-actions@github.com"
-      - run: yarn run bump
-      - run: yarn run build
+      - run: npx projen bump
+      - run: npx projen build
       - name: Anti-tamper check
         run: git diff --exit-code
       - run: git push --follow-tags origin $GITHUB_REF
@@ -27,3 +27,22 @@ jobs:
         with:
           name: dist
           path: dist
+    container:
+      image: jsii/superchain
+  release_npm:
+    name: Release to NPM
+    needs: build
+    runs-on: ubuntu-latest
+    container:
+      image: jsii/superchain
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v1
+        with:
+          name: dist
+      - name: Release
+        run: npx -p jsii-release jsii-release-npm
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_DIST_TAG: latest
+          NPM_REGISTRY: registry.npmjs.org
