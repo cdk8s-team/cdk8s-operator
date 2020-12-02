@@ -5,7 +5,6 @@ const project = new JsiiProject({
   authorName: 'Elad Ben-Israel',
   authorAddress: 'benisrae@amazon.com',
   repository: 'https://github.com/eladb/cdk8s-pack-prototype.git',
-  releaseEveryCommit: false,
   bundledDeps: [
     'yaml'
   ],
@@ -15,7 +14,20 @@ const project = new JsiiProject({
   ],
   bin: {
     'cdk8s-server': 'lib/cli/cdk8s-server.js',
-  }
+  },
+
+  projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
+
+  java: {
+    javaPackage: 'com.github.eladb.cdk8soperator',
+    mavenGroupId: 'com.github.eladb',
+    mavenArtifactId: 'cdk8s-operator'
+  },
+
+  python: {
+    distName: 'cdk8s-operator',
+    module: 'cdk8s_operator'
+  },  
 });
 
 project.synth();

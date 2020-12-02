@@ -10,148 +10,232 @@ CDK8s.
 
 Let's create our first CRD served by a CDK8s construct using TypeScript.
 
-The `Operator` construct can be used to create "CDK8s Operators" which are CDK8s
-apps which accept an input from a file (or STDIN) with a Kubernetes manifest,
-instantiates a custom construct with the `spec` of this input and emits the
-resulting manifest to a file (or STDOUT).
+### Install CDK8s
 
-In the following example, an operator is created to handle resource of
-`org.cdk8s.samples.WebService` kind. As you can see, a single operator can
-handle multiple resource kinds.
+Make sure your system has the required CDK8s [prerequisites](https://cdk8s.io/docs/latest/getting-started/#prerequisites).
 
-`my-operator.js`:
+Install the CDK8s CLI globally through npm:
+
+```shell
+$ npm i -g cdk8s-cli
+Installing...
+
+# Verify installation
+$ cdk8s --version
+1.0.0-beta.3
+```
+
+### Create a new CDK8s app
+
+Now, let's create a new CDK8s typescript app:
+
+```shell
+mkdir hello-operator && cd hello-operator
+git init
+cdk8s init typescript-app
+```
+
+### Install cdk8s-operator
+
+Next, let's install this module as a dependency of our TypeScript project:
+
+```shell
+yarn add cdk8s-operator
+```
+
+### Construct
+
+We will start by creating the construct that implements the abstraction. This is
+is just a normal CDK8s custom construct:
+
+Let's create a construct called `PodCollection` which represents a collection of
+pods:
+
+`pod-collection.ts`:
 
 ```ts
-import { WebService } from './web-service';
-import { Operator } from './operator'; // <-- this will be in cdk8s
+export interface PodCollectionProps {
+  /** Number of pods */
+  readonly count: number;
+  /** The docker image to deploy */
+  readonly image: string;
+}
 
-const operator = new Operator();
+export class PodCollection extends Construct {
+  constructor(scope: Construct, id: string, props: PodCollectionProps) {
+    super(scope, id);
 
-operator.addProvider({
-  kind: 'WebService',
+    for (let i = 0; i < props.count; ++i) {
+      new Pod(this, `pod-${i}`, {
+        containers: [ { image: props.image } ]
+      });
+    }
+  }
+}
+```
+
+### Operator App
+
+Now, we will need to replace out `main.ts` file with an "operator app", which is
+a special kind of CDK8s app designed to be executed by the `cdk8s-server` CLI
+which is included in this module.
+
+The `Operator` app construct can be used to create "CDK8s Operators" which are
+CDK8s apps that accept input from a file (or STDIN) with a Kubernetes manifest,
+instantiates a construct with the `spec` as its input and emits the resulting
+manifest to STDOUT.
+
+Replace the contents of `main.ts` with the following. We initialize an
+`Operator` app and then register a provider which handles resources of API
+version `samples.cdk8s.org/v1alpha1` and kind `PodCollection`.
+
+```ts
+import { Operator } from 'cdk8s-operator';
+import { PodCollection } from './pod-collection';
+
+const app = new Operator();
+
+app.addProvider({
   apiVersion: 'samples.cdk8s.org/v1alpha1',
-  // schema: ...
+  kind: 'PodCollection',
   handler: {
-    apply: (scope, name, spec) => new WebService(scope, name, spec),
-  },
+    apply: (scope, id, props) => new PodCollection(scope, id, props)
+  }
 })
 
-operator.synth();
+app.synth();
 ```
+
+> A single operator can handle any number of resource kinds. Simply call
+> `addProvider()` for each apiVersion/kind.
+
+## Using Operators
 
 To use this operator, create an `input.json` file, e.g:
 
 ```json
 {
   "apiVersion": "samples.cdk8s.org/v1alpha1",
-  "kind": "WebService",
+  "kind": "PodCollection",
   "metadata": {
-    "name": "my-web-service"
+    "name": "my-collection"
   },
   "spec": {
     "image": "paulbouwer/hello-kubernetes",
-    "containerPort": 8080,
-    "servicePort": 80
+    "count": 5
   }
 }
+```
+
+Compile your code:
+
+```shell
+npx tsc
 ```
 
 And run:
 
 ```shell
-$ node my-operator.js < input.json
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-web-service-deployment-pod-b9bf8233
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      cdk8s.deployment: mywebservicedeployment25C8720D
-  template:
-    metadata:
-      labels:
-        cdk8s.deployment: mywebservicedeployment25C8720D
-    spec:
-      containers:
-        - env: []
-          image: paulbouwer/hello-kubernetes
-          name: main
-          ports:
-            - containerPort: 8080
-          volumeMounts: []
-      volumes: []
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-web-service-deployment-service-pod-e97cbd24
-spec:
-  externalIPs: []
-  ports:
-    - port: 80
-      targetPort: 8080
-  selector:
-    cdk8s.deployment: mywebservicedeployment25C8720D
-  type: ClusterIP
+node main.js input.json
 ```
+
+<details>
+  <summary>STDOUT</summary>
+
+```yaml
+apiVersion: "v1"
+kind: "Pod"
+metadata:
+  name: "my-collection-pod-0-c8735c52"
+spec:
+  containers:
+    - env: []
+      image: "paulbouwer/hello-kubernetes"
+      imagePullPolicy: "Always"
+      name: "main"
+      ports: []
+      volumeMounts: []
+  volumes: []
+---
+apiVersion: "v1"
+kind: "Pod"
+metadata:
+  name: "my-collection-pod-1-c89f58d7"
+spec:
+  containers:
+    - env: []
+      image: "paulbouwer/hello-kubernetes"
+      imagePullPolicy: "Always"
+      name: "main"
+      ports: []
+      volumeMounts: []
+  volumes: []
+---
+apiVersion: "v1"
+kind: "Pod"
+metadata:
+  name: "my-collection-pod-2-c88d4268"
+spec:
+  containers:
+    - env: []
+      image: "paulbouwer/hello-kubernetes"
+      imagePullPolicy: "Always"
+      name: "main"
+      ports: []
+      volumeMounts: []
+  volumes: []
+---
+apiVersion: "v1"
+kind: "Pod"
+metadata:
+  name: "my-collection-pod-3-c86866b1"
+spec:
+  containers:
+    - env: []
+      image: "paulbouwer/hello-kubernetes"
+      imagePullPolicy: "Always"
+      name: "main"
+      ports: []
+      volumeMounts: []
+  volumes: []
+---
+apiVersion: "v1"
+kind: "Pod"
+metadata:
+  name: "my-collection-pod-4-c8b74b1d"
+spec:
+  containers:
+    - env: []
+      image: "paulbouwer/hello-kubernetes"
+      imagePullPolicy: "Always"
+      name: "main"
+      ports: []
+      volumeMounts: []
+  volumes: []
+```
+
+</details>
 
 ## `cdk8s-server`
 
-This is a CLI command that starts an HTTP server on port 8080. It uses the
-`operator` attribute from `cdk8s.yaml`.
-
-Let's use `cdk8s-server` with the operator we defined in the previous example:
-
-```yaml
-language: typescript
-operator: node my-operator.js
-```
-
-Now, if you run:
+This library is shipped with a program called `cdk8s-server` which can be used
+to host your operator inside an HTTP server. This server can be used as a
+sidecar container with a generic CRD operator (TBD).
 
 ```shell
-$ cdk8s-server
-cdk8s-server listening on 8080
-- Request body should include a single k8s resource in json
-- Request will be piped through STDIN to "node my-operator.js"
+PORT=8080 npx cdk8s-server
+Listening on 8080
+- App command: node main.js
+- Request body should include a single k8s resource in JSON format
+- Request will be piped through STDIN to "node main.js"
 - Response is the STDOUT and expected to be a multi-resource yaml manifest
 ```
 
-Now you can synthesize with cURL:
+Now, you can send `input.json` over HTTP:
 
 ```shell
-$ curl -d @test/input.json http://localhost:8080
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-web-service-deployment-pod-b9bf8233
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      cdk8s.deployment: mywebservicedeployment25C8720D
-...
-```
-
-## `cdk8s-pack`
-
-This CLI commands creates a Docker image which bundles the operator into a docker image:
-
-```shell
-$ cdk8s-pack eladb/cdk8s-pack-prototype
-....
-```
-
-Now,
-
-```shell
-$ docker run -p 8080:8080 eladb/cdk8s-pack-prototype
-cdk8s-server listening on 8080
-- Request body should include a single k8s resource in json
-- Request will be piped through STDIN to "node my-operator.js"
-- Response is the STDOUT and expected to be a multi-resource yaml manifest
+curl -d @input.json http://localhost:8080
+MANIFEST...
 ```
 
 ## License
