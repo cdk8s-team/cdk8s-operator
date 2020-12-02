@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // cdk8s-server: http server which synthesizes cdk operators
 // ------------------------------------------------------------------------------------
 // request body should include an input manifest for a single resource
