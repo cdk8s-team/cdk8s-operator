@@ -40,7 +40,7 @@ cdk8s init typescript-app
 Next, let's install this module as a dependency of our TypeScript project:
 
 ```shell
-yarn add cdk8s-operator
+npm install cdk8s-operator
 ```
 
 ### Construct
@@ -54,6 +54,9 @@ pods:
 `pod-collection.ts`:
 
 ```ts
+import { Pod } from 'cdk8s-plus-17';
+import { Construct } from 'constructs';
+
 export interface PodCollectionProps {
   /** Number of pods */
   readonly count: number;
@@ -89,6 +92,8 @@ Replace the contents of `main.ts` with the following. We initialize an
 `Operator` app and then register a provider which handles resources of API
 version `samples.cdk8s.org/v1alpha1` and kind `PodCollection`.
 
+`main.ts`:
+
 ```ts
 import { Operator } from 'cdk8s-operator';
 import { PodCollection } from './pod-collection';
@@ -113,6 +118,8 @@ app.synth();
 
 To use this operator, create an `input.json` file, e.g:
 
+`input.json`:
+
 ```json
 {
   "apiVersion": "samples.cdk8s.org/v1alpha1",
@@ -130,13 +137,17 @@ To use this operator, create an `input.json` file, e.g:
 Compile your code:
 
 ```shell
-npx tsc
+# delete `main.test.ts` since it has some code that won't compile
+$ rm -f main.test.*
+
+# compile
+$ npm run compile
 ```
 
 And run:
 
 ```shell
-node main.js input.json
+$ node main.js input.json
 ```
 
 <details>
