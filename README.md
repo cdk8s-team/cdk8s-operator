@@ -234,7 +234,7 @@ to host your operator inside an HTTP server. This server can be used as a
 sidecar container with a generic CRD operator (TBD).
 
 ```shell
-PORT=8080 npx cdk8s-server
+$ PORT=8080 npx cdk8s-server
 Listening on 8080
 - App command: node main.js
 - Request body should include a single k8s resource in JSON format
@@ -245,7 +245,7 @@ Listening on 8080
 Now, you can send `input.json` over HTTP:
 
 ```shell
-curl -d @input.json http://localhost:8080
+$ curl -d @input.json http://localhost:8080
 MANIFEST...
 ```
 
