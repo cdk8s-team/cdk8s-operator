@@ -102,7 +102,19 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {},
+    "targets": {
+      "java": {
+        "package": "com.github.eladb.cdk8soperator",
+        "maven": {
+          "groupId": "com.github.eladb",
+          "artifactId": "cdk8s-operator"
+        }
+      },
+      "python": {
+        "distName": "cdk8s-operator",
+        "module": "cdk8s_operator"
+      }
+    },
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"
