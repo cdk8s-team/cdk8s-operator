@@ -6,11 +6,11 @@ const project = new JsiiProject({
   authorAddress: 'benisrae@amazon.com',
   repository: 'https://github.com/eladb/cdk8s-pack-prototype.git',
   bundledDeps: [
-    'yaml'
+    'yaml',
   ],
-  peerDeps: [ 
-    'cdk8s@1.0.0-beta.3', 
-    'constructs@^3.2.42' 
+  peerDeps: [
+    'cdk8s@1.0.0-beta.3',
+    'constructs@^3.2.42',
   ],
   bin: {
     'cdk8s-server': 'lib/cli/cdk8s-server.js',
@@ -21,13 +21,13 @@ const project = new JsiiProject({
   java: {
     javaPackage: 'com.github.eladb.cdk8soperator',
     mavenGroupId: 'com.github.eladb',
-    mavenArtifactId: 'cdk8s-operator'
+    mavenArtifactId: 'cdk8s-operator',
   },
 
   python: {
     distName: 'cdk8s-operator',
-    module: 'cdk8s_operator'
-  },  
+    module: 'cdk8s_operator',
+  },
 });
 
 project.synth();
