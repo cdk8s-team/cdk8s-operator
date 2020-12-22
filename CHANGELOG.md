@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.27 (2020-12-22)
+
+
+### Bug Fixes
+
+* make cdk8s-server executable ([5f12830](https://github.com/eladb/cdk8s-pack-prototype/commit/5f12830d6312a794007a2a1e5dd7e1f1aa5e9247))
+
 ### 0.0.26 (2020-12-22)
 
 ### 0.0.25 (2020-12-21)
