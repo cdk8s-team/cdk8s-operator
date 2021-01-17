@@ -18,13 +18,13 @@ const project = new JsiiProject({
 
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
 
-  java: {
+  publishToMaven: {
     javaPackage: 'com.github.eladb.cdk8soperator',
     mavenGroupId: 'com.github.eladb',
     mavenArtifactId: 'cdk8s-operator',
   },
 
-  python: {
+  publishToPypi: {
     distName: 'cdk8s-operator',
     module: 'cdk8s_operator',
   },
