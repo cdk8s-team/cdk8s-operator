@@ -5,6 +5,7 @@ const project = new JsiiProject({
   authorName: 'Elad Ben-Israel',
   authorAddress: 'benisrae@amazon.com',
   repository: 'https://github.com/eladb/cdk8s-pack-prototype.git',
+  defaultReleaseBranch: 'master',
   bundledDeps: [
     'yaml',
   ],
