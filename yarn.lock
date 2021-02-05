@@ -487,7 +487,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@jsii/spec@^1.16.0", "@jsii/spec@^1.17.1", "@jsii/spec@^1.19.0", "@jsii/spec@^1.20.0":
+"@jsii/spec@^1.16.0", "@jsii/spec@^1.17.1", "@jsii/spec@^1.20.0":
   version "1.20.0"
   resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.20.0.tgz#4154af2e10aa1364e906ae6ac70d073cc809a5e4"
   integrity sha512-7KwIuFTAcT4N7tOBQSacaIK3TEkCrWjTHY1iSWh5VNF9Yrc5I6KQ/WmGa/5yC3jZThR3J/+z1H/IIUVPhfiUYw==
@@ -3699,7 +3699,7 @@ jsii-pacmak@^1.15.0:
     xmlbuilder "^15.1.1"
     yargs "^16.2.0"
 
-jsii-reflect@^1.16.0, jsii-reflect@^1.19.0, jsii-reflect@^1.20.0:
+jsii-reflect@^1.16.0, jsii-reflect@^1.20.0:
   version "1.20.0"
   resolved "https://registry.yarnpkg.com/jsii-reflect/-/jsii-reflect-1.20.0.tgz#52870796922ace88cef0f471c4647bde5f5b4d5a"
   integrity sha512-W3UBQLW2pVaWkdSBRnQJOSEtzsphypCaskxlW/dSPf0ikULjoSDOMdC6oJEUNp8uzYAdpXo/uFYJZnBDk+Dafw==
@@ -3711,9 +3711,9 @@ jsii-reflect@^1.16.0, jsii-reflect@^1.19.0, jsii-reflect@^1.20.0:
     yargs "^16.2.0"
 
 jsii-release@^0.2.11:
-  version "0.2.13"
-  resolved "https://registry.yarnpkg.com/jsii-release/-/jsii-release-0.2.13.tgz#9f8f2aea050fc091cb9c0cae46509bca8f416706"
-  integrity sha512-dLA8c23AkuHHHmtUXKGhDqh9Ns2fLF0BoP5/9hlDuCdSv6vedFf92MUaJ58DE0IYBk98J8RIH0QXio7KOKCVfQ==
+  version "0.2.16"
+  resolved "https://registry.yarnpkg.com/jsii-release/-/jsii-release-0.2.16.tgz#45e4269eb55d56c9a55bda834289b7367d2dd2f6"
+  integrity sha512-PJoOYBm8qKugtDOMUeGmZ0214SCCCutkBaKWWMPA6+GIb98ubtP7y/YUueENjk/p7+JZo5lmE8CtC/lS5Xi4Tg==
 
 jsii-rosetta@^1.20.0:
   version "1.20.0"
