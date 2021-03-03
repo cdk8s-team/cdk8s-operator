@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.105](https://github.com/eladb/cdk8s-pack-prototype/compare/v0.0.104...v0.0.105) (2021-03-03)
+
 ### [0.0.104](https://github.com/eladb/cdk8s-pack-prototype/compare/v0.0.103...v0.0.104) (2021-03-02)
 
 ### [0.0.103](https://github.com/eladb/cdk8s-pack-prototype/compare/v0.0.102...v0.0.103) (2021-03-02)
