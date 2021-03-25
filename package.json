@@ -8,8 +8,6 @@
     "cdk8s-server": "lib/cli/cdk8s-server.js"
   },
   "scripts": {
-    "projen": "npx projen",
-    "start": "npx projen start",
     "clobber": "npx projen clobber",
     "compile": "npx projen compile",
     "test:compile": "npx projen test:compile",
@@ -24,7 +22,9 @@
     "package": "npx projen package",
     "eslint": "npx projen eslint",
     "compat": "npx projen compat",
-    "docgen": "npx projen docgen"
+    "docgen": "npx projen docgen",
+    "projen": "npx projen",
+    "start": "npx projen start"
   },
   "author": {
     "name": "Elad Ben-Israel",
@@ -49,7 +49,7 @@
     "jsii-docgen": "^1.4.98",
     "jsii-pacmak": "^1.15.0",
     "json-schema": "^0.2.5",
-    "projen": "^0.17.16",
+    "projen": "^0.17.17",
     "standard-version": "^9",
     "ts-jest": "^26.4.4",
     "typescript": "^3.9.5"
