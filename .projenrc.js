@@ -29,6 +29,11 @@ const project = new JsiiProject({
     distName: 'cdk8s-operator',
     module: 'cdk8s_operator',
   },
+  autoApproveOptions: {
+    allowedUsernames: ['cdk8s-automation'],
+    secret: 'GITHUB_TOKEN',
+  },
+  autoApproveUpgrades: true,
 });
 
 project.synth();
