@@ -2,8 +2,8 @@ const { JsiiProject } = require('projen');
 
 const project = new JsiiProject({
   name: 'cdk8s-operator',
-  authorName: 'Elad Ben-Israel',
-  authorAddress: 'benisrae@amazon.com',
+  authorName: 'Amazon Web Services',
+  authorUrl: 'https://aws.amazon.com',
   repository: 'https://github.com/eladb/cdk8s-pack-prototype.git',
   defaultReleaseBranch: 'master',
   bundledDeps: [
@@ -20,8 +20,8 @@ const project = new JsiiProject({
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
 
   publishToMaven: {
-    javaPackage: 'com.github.eladb.cdk8soperator',
-    mavenGroupId: 'com.github.eladb',
+    javaPackage: 'org.cdk8s.cdk8soperator',
+    mavenGroupId: 'org.cdk8s',
     mavenArtifactId: 'cdk8s-operator',
   },
 
