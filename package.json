@@ -28,8 +28,8 @@
     "start": "npx projen start"
   },
   "author": {
-    "name": "Elad Ben-Israel",
-    "email": "benisrae@amazon.com",
+    "name": "Amazon Web Services",
+    "url": "https://aws.amazon.com",
     "organization": false
   },
   "devDependencies": {
@@ -114,9 +114,9 @@
     "outdir": "dist",
     "targets": {
       "java": {
-        "package": "com.github.eladb.cdk8soperator",
+        "package": "org.cdk8s.cdk8soperator",
         "maven": {
-          "groupId": "com.github.eladb",
+          "groupId": "org.cdk8s",
           "artifactId": "cdk8s-operator"
         }
       },
