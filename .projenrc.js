@@ -2,6 +2,7 @@ const { JsiiProject } = require('projen');
 
 const project = new JsiiProject({
   name: 'cdk8s-operator',
+  description: 'Create Kubernetes CRD Operators using CDK8s Constructs',
   authorName: 'Amazon Web Services',
   authorUrl: 'https://aws.amazon.com',
   repository: 'https://github.com/eladb/cdk8s-pack-prototype.git',
@@ -10,8 +11,8 @@ const project = new JsiiProject({
     'yaml',
   ],
   peerDeps: [
-    'cdk8s@1.0.0-beta.3',
-    'constructs@^3.2.42',
+    'cdk8s',
+    'constructs',
   ],
   bin: {
     'cdk8s-server': 'lib/cli/cdk8s-server.js',
