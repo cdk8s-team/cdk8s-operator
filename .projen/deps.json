@@ -19,12 +19,10 @@
     },
     {
       "name": "cdk8s",
-      "version": "1.0.0-beta.3",
       "type": "build"
     },
     {
       "name": "constructs",
-      "version": "3.2.42",
       "type": "build"
     },
     {
@@ -100,12 +98,10 @@
     },
     {
       "name": "cdk8s",
-      "version": "1.0.0-beta.3",
       "type": "peer"
     },
     {
       "name": "constructs",
-      "version": "^3.2.42",
       "type": "peer"
     }
   ],
