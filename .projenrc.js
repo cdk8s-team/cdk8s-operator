@@ -14,6 +14,12 @@ const project = new JsiiProject({
     'cdk8s',
     'constructs',
   ],
+  keywords: [
+    'cdk8s',
+    'kubernetes',
+    'crd',
+    'operator',
+  ],
   bin: {
     'cdk8s-server': 'lib/cli/cdk8s-server.js',
   },
