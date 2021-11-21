@@ -71,6 +71,12 @@
   "bundledDependencies": [
     "yaml"
   ],
+  "keywords": [
+    "cdk8s",
+    "crd",
+    "kubernetes",
+    "operator"
+  ],
   "engines": {
     "node": ">= 12.13.0"
   },
