@@ -23,7 +23,7 @@ test('invalid app command', async () => {
   });
 
   const port = await server.listen();
-  await expectError(httpPost(port, JSON.stringify({ hello: 'world' })), 'boom: command not found');
+  await expectError(httpPost(port, JSON.stringify({ hello: 'world' })), 'boom');
 });
 
 test('invalid input', async () => {
