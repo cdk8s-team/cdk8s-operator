@@ -1,6 +1,6 @@
-const { JsiiProject } = require('projen');
+const { cdk } = require('projen');
 
-const project = new JsiiProject({
+const project = new cdk.JsiiProject({
   name: 'cdk8s-operator',
   description: 'Create Kubernetes CRD Operators using CDK8s Constructs',
   authorName: 'Amazon Web Services',
@@ -24,6 +24,7 @@ const project = new JsiiProject({
     'cdk8s-server': 'lib/cli/cdk8s-server.js',
   },
   minNodeVersion: '12.13.0',
+  workflowNodeVersion: '12.22.0',
 
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
 
