@@ -1432,10 +1432,10 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cdk8s@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-1.2.2.tgz#06340448ae11b199444ba06780e5fcea417a78a6"
-  integrity sha512-6apn3q5KddKP1cxmx6Td8NfZwuyB9BG4zwUdYv0lMO/V5w6ieo3d7sWSl1+6u0xDu1wxiJJz7ct45vRne8VyGg==
+cdk8s@1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-1.2.3.tgz#b65e9596bb59f058a44dc0c6a6e70ac885b2a1e7"
+  integrity sha512-iBNGw2F+mqFqQHzL6V0w1WUIofG6N0O8ggD22RKmtD+ckmgmggYOP+723YJKgl9BJMejpt6YEckFTD8/l4kDgw==
   dependencies:
     fast-json-patch "^2.2.1"
     follow-redirects "^1.14.5"
