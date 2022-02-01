@@ -29,7 +29,7 @@ Name|Description
 
 A CDK8s app which allows implementing Kubernetes operators using CDK8s constructs.
 
-__Implements__: [IConstruct](#constructs-iconstruct)
+__Implements__: [IConstruct](#constructs-iconstruct), [IDependable](#constructs-idependable)
 __Extends__: [App](#cdk8s-app)
 
 ### Initializer
