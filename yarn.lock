@@ -315,9 +315,9 @@
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
 "@humanwhocodes/config-array@^0.9.2":
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.9.3.tgz#f2564c744b387775b436418491f15fce6601f63e"
-  integrity sha512-3xSMlXHh03hCcCmFc0rbKp3Ivt2PFEJnQUJDDMTJQ2wkECZWdq4GePs2ctc5H8zV+cHPaq8k2vU8mrQjA6iHdQ==
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.9.5.tgz#2cbaf9a89460da24b5ca6531b8bbfc23e1df50c7"
+  integrity sha512-ObyMyWxZiCu/yTisA7uzx81s40xR2fD5Cg/2Kq7G02ajkNubJf6BopgDTmDyc3U7sXpNKM8cYOw7s7Tyr+DnCw==
   dependencies:
     "@humanwhocodes/object-schema" "^1.2.1"
     debug "^4.1.1"
@@ -788,9 +788,9 @@
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
 "@types/node@*":
-  version "17.0.19"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.19.tgz#726171367f404bfbe8512ba608a09ebad810c7e6"
-  integrity sha512-PfeQhvcMR4cPFVuYfBN4ifG7p9c+Dlh3yUZR6k+5yQK7wX3gDgVxBly4/WkBRs9x4dmcy1TVl08SY67wwtEvmA==
+  version "17.0.21"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.21.tgz#864b987c0c68d07b4345845c3e63b75edd143644"
+  integrity sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==
 
 "@types/node@^12":
   version "12.20.46"
@@ -1627,10 +1627,10 @@ console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-constructs@10.0.70:
-  version "10.0.70"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.70.tgz#5e3eb0da36c216dfcfdf96a3950395a20020708b"
-  integrity sha512-yu9peMAi8bvyLC4gDWsJn7bqWM09/PcAscjxrnWlvJh7VM1OR8gp/G7AjBvxD+GylLsVaUDSAMG/tmWdiJjkcQ==
+constructs@10.0.71:
+  version "10.0.71"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.0.71.tgz#769c6d9dace773286d68d1d8fb6a626b1dd6c3d6"
+  integrity sha512-wo4Pkb8GbooMMeBlFOkqAoHgrKERVWXRCQL7Unx0iqlVTQVY22IHDnTaKxw0NTldNYzzob9ka5Okq424eFfO4Q==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.13"
@@ -5246,10 +5246,10 @@ progress@^2.0.3:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-projen@^0.52.43:
-  version "0.52.43"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.52.43.tgz#432db6a3f42f1f3cba0e8bba76a823312979518d"
-  integrity sha512-opnepXuM2tdgwJoMi2WRvZvyeK4tJlgeBp/h2Pth4nGR3Xm/2bBUik5ix2ehB6wRFicu0xf7XYQwrIBDk14Www==
+projen@^0.52.44:
+  version "0.52.44"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.52.44.tgz#12220e2ac58cb78d7b0fb1c1dc4162a5b917b765"
+  integrity sha512-CGo5YGwqBe+CTt9vo3Jxu9j19Fy9ZK7HemiHMxVDFl3gFGZmQp3OoArw8+5uHGxPK82PNcXpy4gz1VlSTP69IQ==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
