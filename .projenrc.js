@@ -23,8 +23,7 @@ const project = new cdk.JsiiProject({
   bin: {
     'cdk8s-server': 'lib/cli/cdk8s-server.js',
   },
-  minNodeVersion: '12.13.0',
-  workflowNodeVersion: '12.22.0',
+  minNodeVersion: '14.17.0',
 
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
 
