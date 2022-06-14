@@ -6,7 +6,7 @@ const project = new cdk.JsiiProject({
   authorName: 'Amazon Web Services',
   authorUrl: 'https://aws.amazon.com',
   repository: 'https://github.com/eladb/cdk8s-pack-prototype.git',
-  defaultReleaseBranch: 'master',
+  defaultReleaseBranch: 'main',
   bundledDeps: [
     'yaml',
   ],
