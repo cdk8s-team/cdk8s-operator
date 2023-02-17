@@ -224,7 +224,7 @@
     },
     "release": {
       "name": "release",
-      "description": "Prepare a release from \"master\" branch",
+      "description": "Prepare a release from \"main\" branch",
       "env": {
         "RELEASE": "true"
       },
@@ -251,19 +251,11 @@
       "description": "Run tests",
       "steps": [
         {
-          "exec": "jest --passWithNoTests --all --updateSnapshot --coverageProvider=v8"
+          "exec": "jest --passWithNoTests --coverageProvider=v8 --updateSnapshot",
+          "receiveArgs": true
         },
         {
           "spawn": "eslint"
-        }
-      ]
-    },
-    "test:update": {
-      "name": "test:update",
-      "description": "Update jest snapshots",
-      "steps": [
-        {
-          "exec": "jest --updateSnapshot"
         }
       ]
     },

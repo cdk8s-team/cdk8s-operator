@@ -2,8 +2,8 @@ import { mkdtempSync, writeFileSync } from 'fs';
 import { tmpdir } from 'os';
 import { join } from 'path';
 import { Yaml } from 'cdk8s';
-import { Operator } from '../src';
 import { PodCollection } from './fixtures/pod-collection';
+import { Operator } from '../src';
 
 // disable logs
 jest.spyOn(console, 'error').mockReturnValue();

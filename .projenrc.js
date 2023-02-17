@@ -3,7 +3,7 @@ const { Cdk8sTeamJsiiProject } = require('@cdk8s/projen-common');
 const project = new Cdk8sTeamJsiiProject({
   name: 'cdk8s-operator',
   description: 'Create Kubernetes CRD Operators using CDK8s Constructs',
-  defaultReleaseBranch: 'master',
+  defaultReleaseBranch: 'main',
   bundledDeps: [
     'yaml',
   ],

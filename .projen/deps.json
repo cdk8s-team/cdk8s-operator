@@ -6,6 +6,7 @@
     },
     {
       "name": "@types/jest",
+      "version": "^27",
       "type": "build"
     },
     {
@@ -75,12 +76,8 @@
       "type": "build"
     },
     {
-      "name": "json-schema",
-      "type": "build"
-    },
-    {
       "name": "npm-check-updates",
-      "version": "^12",
+      "version": "^16",
       "type": "build"
     },
     {
@@ -104,6 +101,16 @@
     {
       "name": "yaml",
       "type": "bundled"
+    },
+    {
+      "name": "@types/babel__traverse",
+      "version": "7.18.2",
+      "type": "override"
+    },
+    {
+      "name": "@types/prettier",
+      "version": "2.6.0",
+      "type": "override"
     },
     {
       "name": "cdk8s",
