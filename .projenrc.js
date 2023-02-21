@@ -1,11 +1,8 @@
-const { cdk } = require('projen');
+const { Cdk8sTeamJsiiProject } = require('@cdk8s/projen-common');
 
-const project = new cdk.JsiiProject({
+const project = new Cdk8sTeamJsiiProject({
   name: 'cdk8s-operator',
   description: 'Create Kubernetes CRD Operators using CDK8s Constructs',
-  authorName: 'Amazon Web Services',
-  authorUrl: 'https://aws.amazon.com',
-  repository: 'https://github.com/eladb/cdk8s-pack-prototype.git',
   defaultReleaseBranch: 'main',
   bundledDeps: [
     'yaml',
@@ -13,6 +10,9 @@ const project = new cdk.JsiiProject({
   peerDeps: [
     'cdk8s',
     'constructs',
+  ],
+  devDeps: [
+    '@cdk8s/projen-common',
   ],
   keywords: [
     'cdk8s',
@@ -23,25 +23,9 @@ const project = new cdk.JsiiProject({
   bin: {
     'cdk8s-server': 'lib/cli/cdk8s-server.js',
   },
-  minNodeVersion: '14.17.0',
 
   projenUpgradeSecret: 'PROJEN_GITHUB_TOKEN',
 
-  publishToMaven: {
-    javaPackage: 'org.cdk8s.cdk8soperator',
-    mavenGroupId: 'org.cdk8s',
-    mavenArtifactId: 'cdk8s-operator',
-  },
-
-  publishToPypi: {
-    distName: 'cdk8s-operator',
-    module: 'cdk8s_operator',
-  },
-  autoApproveOptions: {
-    allowedUsernames: ['cdk8s-automation'],
-    secret: 'GITHUB_TOKEN',
-  },
-  autoApproveUpgrades: true,
 });
 
 project.synth();
