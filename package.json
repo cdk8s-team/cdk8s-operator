@@ -42,7 +42,7 @@
     "organization": false
   },
   "devDependencies": {
-    "@cdk8s/projen-common": "^0.0.288",
+    "@cdk8s/projen-common": "^0.0.296",
     "@types/jest": "^27",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
@@ -82,7 +82,7 @@
     "operator"
   ],
   "engines": {
-    "node": ">= 14.17.0"
+    "node": ">= 14.18.0"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
