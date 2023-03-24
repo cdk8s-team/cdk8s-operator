@@ -42,13 +42,13 @@
     "organization": false
   },
   "devDependencies": {
-    "@cdk8s/projen-common": "^0.0.296",
+    "@cdk8s/projen-common": "^0.0.300",
     "@types/jest": "^27",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "cdk8s": "2.7.41",
-    "constructs": "10.1.287",
+    "cdk8s": "2.7.42",
+    "constructs": "10.1.289",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
     "eslint-import-resolver-typescript": "^2.7.1",
@@ -56,17 +56,17 @@
     "jest": "^27",
     "jest-junit": "^15",
     "jsii": "1.x",
-    "jsii-diff": "^1.78.1",
+    "jsii-diff": "^1.79.0",
     "jsii-docgen": "^1.8.110",
-    "jsii-pacmak": "^1.78.1",
+    "jsii-pacmak": "^1.79.0",
     "npm-check-updates": "^16",
-    "projen": "^0.69.4",
+    "projen": "^0.69.5",
     "standard-version": "^9",
     "ts-jest": "^27",
     "typescript": "^3.9.10"
   },
   "peerDependencies": {
-    "cdk8s": "^2.7.41",
+    "cdk8s": "^2.7.42",
     "constructs": "^10"
   },
   "dependencies": {
@@ -82,7 +82,7 @@
     "operator"
   ],
   "engines": {
-    "node": ">= 14.18.0"
+    "node": ">= 14.17.0"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
