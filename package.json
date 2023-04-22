@@ -48,7 +48,7 @@
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "cdk8s": "2.7.56",
-    "constructs": "10.2.2",
+    "constructs": "10.2.3",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
     "eslint-import-resolver-typescript": "^2.7.1",
@@ -60,7 +60,7 @@
     "jsii-docgen": "^1.8.110",
     "jsii-pacmak": "^1.80.0",
     "npm-check-updates": "^16",
-    "projen": "^0.71.18",
+    "projen": "^0.71.20",
     "standard-version": "^9",
     "ts-jest": "^27",
     "typescript": "^3.9.10"
