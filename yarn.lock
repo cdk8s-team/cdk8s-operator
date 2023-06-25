@@ -1679,10 +1679,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s@2.7.82:
-  version "2.7.82"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.7.82.tgz#c7df58f21fb18b9d1635d0457c9043168f7bf25c"
-  integrity sha512-mD526vWY7zdHQwxKFU2Z+TFAngNocNKUQNua5WDV9Tgu4p+EvnpH029wJ2h0klE1rx5fZEeHuLi2yOgUPiLoLA==
+cdk8s@2.7.83:
+  version "2.7.83"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.7.83.tgz#164ee046d3f0d2b1cf2f9b636d0f198287cac60b"
+  integrity sha512-hVeoXCDZ14qRcYxDK9PoDQv5kSVyTp+PtNM+E/uAHa03VLYQLx0DA8933C8mMQzRjqRi7mvg1ql+AzW+xSy6QA==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.2"
@@ -1953,10 +1953,10 @@ console-control-strings@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==
 
-constructs@10.2.57:
-  version "10.2.57"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.2.57.tgz#5b99630c8b25e6b2c41b5a247e18b8ddf3f7d44d"
-  integrity sha512-4PP/2zMTI7JxNegz05l6Wk0maYOBS/hDTQUFGL/iL73hO0ztyyeefgB+zajHPE3RPqgexSQVddIGWPQ2cmMkvQ==
+constructs@10.2.58:
+  version "10.2.58"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.2.58.tgz#e48523c06fd192f1ab180afbc101a7fa35fb98f9"
+  integrity sha512-2QzzSho4bKof5va8fPTAdzsoaBvClrYxWPVjMPzbGqL5vF6NA4AAH0tuWPc3SbC9sWVJ/5cybRIAvS+4qaEHDw==
 
 conventional-changelog-angular@^5.0.12:
   version "5.0.13"
