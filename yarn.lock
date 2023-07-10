@@ -1679,19 +1679,19 @@ camelcase@^7.0.1:
   integrity sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==
 
 caniuse-lite@^1.0.30001503:
-  version "1.0.30001513"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001513.tgz#382fe5fbfb0f7abbaf8c55ca3ac71a0307a752e9"
-  integrity sha512-pnjGJo7SOOjAGytZZ203Em95MRM8Cr6jhCXNF/FAXTpCTRTECnqQWLpiTRqrFtdYcth8hf4WECUpkezuYsMVww==
+  version "1.0.30001514"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001514.tgz#e2a7e184a23affc9367b7c8d734e7ec4628c1309"
+  integrity sha512-ENcIpYBmwAAOm/V2cXgM7rZUrKKaqisZl4ZAI520FIkqGXUxJjmaIssbRW5HVVR5tyV6ygTLIm15aU8LUmQSaQ==
 
 case@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s@2.7.97:
-  version "2.7.97"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.7.97.tgz#45b9893599700b461886a5fdab386fb8516a88ca"
-  integrity sha512-6twIOF35MsvQfqseLbB7aADUILNHTEdyZhP9QAdG/3WqgcDHxu2UYYIaoDNzzLhkzsPkd7wuQBeKHKVYy0qrCw==
+cdk8s@2.7.98:
+  version "2.7.98"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.7.98.tgz#b47209ae874f8634efc9f63839643db203c21257"
+  integrity sha512-ro6rPtyVZz0NSg736f32JeOk+AHOm9ULmAuMI4pIFZiqKnVyyEMEw2RurTUbC8YAJLAisxX0yRAhlN6jHi5TqQ==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.2"
