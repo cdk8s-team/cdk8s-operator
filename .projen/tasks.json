@@ -32,7 +32,8 @@
         "CHANGELOG": "dist/changelog.md",
         "BUMPFILE": "dist/version.txt",
         "RELEASETAG": "dist/releasetag.txt",
-        "RELEASE_TAG_PREFIX": ""
+        "RELEASE_TAG_PREFIX": "",
+        "RELEASABLE_COMMITS": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'"
       },
       "steps": [
         {
@@ -294,7 +295,8 @@
         "CHANGELOG": "dist/changelog.md",
         "BUMPFILE": "dist/version.txt",
         "RELEASETAG": "dist/releasetag.txt",
-        "RELEASE_TAG_PREFIX": ""
+        "RELEASE_TAG_PREFIX": "",
+        "RELEASABLE_COMMITS": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+'"
       },
       "steps": [
         {
@@ -313,19 +315,19 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --filter='@cdk8s/projen-common,projen'"
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor --filter='projen,@cdk8s/projen-common'"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --filter='@cdk8s/projen-common,projen'"
+          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --filter='projen,@cdk8s/projen-common'"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --filter='@cdk8s/projen-common,projen'"
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor --filter='projen,@cdk8s/projen-common'"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --filter='@cdk8s/projen-common,projen'"
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor --filter='projen,@cdk8s/projen-common'"
         },
         {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --filter='@cdk8s/projen-common,projen'"
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor --filter='projen,@cdk8s/projen-common'"
         },
         {
           "exec": "yarn install --check-files"
@@ -341,9 +343,9 @@
         }
       ]
     },
-    "upgrade-dependencies": {
-      "name": "upgrade-dependencies",
-      "description": "upgrade dependencies",
+    "upgrade-dev-dependencies": {
+      "name": "upgrade-dev-dependencies",
+      "description": "upgrade dev dependencies",
       "env": {
         "CI": "0"
       },
@@ -352,19 +354,43 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='jsii-rosetta,jsii,@cdk8s/projen-common,projen'"
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='jsii-rosetta,jsii,projen,@cdk8s/projen-common'"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='jsii-rosetta,jsii,@cdk8s/projen-common,projen'"
+          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='jsii-rosetta,jsii,projen,@cdk8s/projen-common'"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='jsii-rosetta,jsii,@cdk8s/projen-common,projen'"
+          "exec": "yarn install --check-files"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='jsii-rosetta,jsii,@cdk8s/projen-common,projen'"
+          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdk8s constructs eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii npm-check-updates standard-version ts-jest typescript yaml cdk8s constructs"
         },
         {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='jsii-rosetta,jsii,@cdk8s/projen-common,projen'"
+          "exec": "npx projen"
+        },
+        {
+          "spawn": "post-upgrade"
+        }
+      ]
+    },
+    "upgrade-runtime-dependencies": {
+      "name": "upgrade-runtime-dependencies",
+      "description": "upgrade runtime dependencies",
+      "env": {
+        "CI": "0"
+      },
+      "steps": [
+        {
+          "exec": "yarn upgrade npm-check-updates"
+        },
+        {
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='jsii-rosetta,jsii,projen,@cdk8s/projen-common'"
+        },
+        {
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='jsii-rosetta,jsii,projen,@cdk8s/projen-common'"
+        },
+        {
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='jsii-rosetta,jsii,projen,@cdk8s/projen-common'"
         },
         {
           "exec": "yarn install --check-files"
