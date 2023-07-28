@@ -1699,10 +1699,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s@2.18.0:
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.18.0.tgz#8421d226da556f6665b6533720c3a753d7c57082"
-  integrity sha512-HPwGCIEgY3lFI6fnncn4O9JBJAHWJ4knBi7l4Iy42kJhJoFlL5x5Q9ezYUZBlyldgTuVB/LrIxobbOPBZBQojw==
+cdk8s@2.21.0:
+  version "2.21.0"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.21.0.tgz#d959923743ccec6a5c57162e0266278486d0e448"
+  integrity sha512-oz0m+91F1bpgUslnnPLEsaLqGRqCFYKSqrT9CiA1b5VsxiTxy+22JApbKecgUW0QKYks5ZtCFDRhHNvy0xQO3A==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.2"
@@ -2412,9 +2412,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.4.431:
-  version "1.4.472"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.472.tgz#5556e50609a0d66d45e7d96c69b0e7a45c402f88"
-  integrity sha512-JL+vQaO4/3mnE68YLaO6tS61YFTlQp8/9JJj1kMP0CL9GHjLYt8t3T0aA3sW3PvdiXjnVeaZ6Kf0mGtt9+2j+Q==
+  version "1.4.475"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.475.tgz#2fee0e2a70cc1538b94f7f90aabcc436e4dcc827"
+  integrity sha512-mTye5u5P98kSJO2n7zYALhpJDmoSQejIGya0iR01GpoRady8eK3bw7YHHnjA1Rfi4ZSLdpuzlAC7Zw+1Zu7Z6A==
 
 emittery@^0.8.1:
   version "0.8.1"
