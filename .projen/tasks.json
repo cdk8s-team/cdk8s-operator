@@ -390,7 +390,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdk8s constructs eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff npm-check-updates standard-version ts-jest yaml cdk8s constructs"
+          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdk8s constructs eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff npm-check-updates standard-version ts-jest yaml"
         },
         {
           "exec": "npx projen"
@@ -411,19 +411,22 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='jsii-rosetta,jsii,projen,@cdk8s/projen-common'"
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='projen,@cdk8s/projen-common'"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='jsii-rosetta,jsii,projen,@cdk8s/projen-common'"
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='projen,@cdk8s/projen-common'"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='jsii-rosetta,jsii,projen,@cdk8s/projen-common'"
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='projen,@cdk8s/projen-common'"
+        },
+        {
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor --filter cdk8s,constructs"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdk8s constructs eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest-junit jest jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii npm-check-updates standard-version ts-jest typescript yaml cdk8s constructs"
+          "exec": "yarn upgrade cdk8s constructs"
         },
         {
           "exec": "npx projen"
