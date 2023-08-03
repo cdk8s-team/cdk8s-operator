@@ -70,7 +70,7 @@
     "typescript": "^3.9.10"
   },
   "peerDependencies": {
-    "cdk8s": "^2.30.0",
+    "cdk8s": "^2.31.0",
     "constructs": "^10"
   },
   "dependencies": {
