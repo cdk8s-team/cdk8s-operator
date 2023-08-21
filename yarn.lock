@@ -1713,10 +1713,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s@2.49.0:
-  version "2.49.0"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.49.0.tgz#3a00a385db7912eaabf88ad543314dc8688383ca"
-  integrity sha512-GoIb5UzY2PKHh8T7i71zQaTWmfHGc66fWEFU5s18GEILfw6HSRKj9HyoHOZk1VeqowejbccDcNXz1ur1eHKslg==
+cdk8s@2.50.0:
+  version "2.50.0"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.50.0.tgz#5278a086f3d5bc08a51b1e30f9a6a125c4d8ace8"
+  integrity sha512-X8yqnMfyQCemsiYdX1sv+nnxwqA26ifxoCA4CW8yDvOm47mVStaorJh3D5zhda3Ss+rkAGWS94OAfUBJnFEz7A==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.2"
