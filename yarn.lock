@@ -1713,10 +1713,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s@2.54.0:
-  version "2.54.0"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.54.0.tgz#64ae273515fe680c1502cc3993c416573e0406c2"
-  integrity sha512-wU/ck1PMRh/puq6Tr96OCFQsFlYJi+bCUirS/MIdLu/6zF+ohknX2BoQ3WilmXtCaLC/AGN1BgAT2KtoYwgK2w==
+cdk8s@2.55.0:
+  version "2.55.0"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.55.0.tgz#987a77a87628398fe0aaed08a55b98f17590c180"
+  integrity sha512-ZF3hLiKjts+Kp5hJevd8+DXwT0Aek3DLnCE88bnbvC8Ps766nGNGsq8GJPJ1CAHPfpvRqCq9cNkrqxsQnpvdUg==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.2"
@@ -4955,9 +4955,9 @@ neo-async@^2.6.2:
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
 node-fetch@^2.6.7:
-  version "2.6.13"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.13.tgz#a20acbbec73c2e09f9007de5cda17104122e0010"
-  integrity sha512-StxNAxh15zr77QvvkmveSQ8uCQ4+v5FkvNTj0OESmiHu+VRi/gXArXtkWMElOsOUNLtUEvI4yS+rdtOHZTwlQA==
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.7.0.tgz#d0f0fa6e3e2dc1d27efcd8ad99d550bda94d187d"
+  integrity sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==
   dependencies:
     whatwg-url "^5.0.0"
 
