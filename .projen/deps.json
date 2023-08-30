@@ -16,12 +16,12 @@
     },
     {
       "name": "@typescript-eslint/eslint-plugin",
-      "version": "^5",
+      "version": "^6",
       "type": "build"
     },
     {
       "name": "@typescript-eslint/parser",
-      "version": "^5",
+      "version": "^6",
       "type": "build"
     },
     {
@@ -116,6 +116,11 @@
     {
       "name": "@types/prettier",
       "version": "2.6.0",
+      "type": "override"
+    },
+    {
+      "name": "**/downlevel-dts/**/typescript",
+      "version": "~5.2.2",
       "type": "override"
     },
     {
