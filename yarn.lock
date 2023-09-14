@@ -1037,9 +1037,9 @@
   integrity sha512-G/AdOadiZhnJp0jXCaBQU449W2h716OW/EoXeYkCytxKL06X1WCXB4DZpp8TpZ8eyIJVS1cw4lrlkkSYU21cDw==
 
 "@types/semver@^7.5.0":
-  version "7.5.1"
-  resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.5.1.tgz#0480eeb7221eb9bc398ad7432c9d7e14b1a5a367"
-  integrity sha512-cJRQXpObxfNKkFAZbJl2yjWtJCqELQIdShsogr1d2MilP8dKD9TE/nEKHkJgUNHdGKCQaf9HbIynuV2csLGVLg==
+  version "7.5.2"
+  resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.5.2.tgz#31f6eec1ed7ec23f4f05608d3a2d381df041f564"
+  integrity sha512-7aqorHYgdNO4DM36stTiGO3DvKoex9TQRwsJU6vMaFGyqpBA1MNZkz+PG3gaNUPpTAOYhT1WR7M1JyA3fbS9Cw==
 
 "@types/stack-utils@^2.0.0":
   version "2.0.1"
@@ -1716,10 +1716,10 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk8s@2.64.8:
-  version "2.64.8"
-  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.64.8.tgz#e69012c2d9d7d1450b3e3ca60d39cd38f5316d5d"
-  integrity sha512-cA2mFWKWV6fcnIwiC30xeLkf/e5Ic6j8XClHS0xP5A+O1hqXBd/6f/KpCA4kZhxMEnjIubGz4C1J351cAYO+uw==
+cdk8s@2.64.9:
+  version "2.64.9"
+  resolved "https://registry.yarnpkg.com/cdk8s/-/cdk8s-2.64.9.tgz#81a94d21672181f6d24bd0e9ce089b04a831a90d"
+  integrity sha512-LhIRSOomBvfKIEbZCtU4pfoqwYV2yr1BnC4aIuLpatOxFq25Gn/G840Milgy7CZ5+pnwsm3/tJe5x8FXomZWEg==
   dependencies:
     fast-json-patch "^3.1.1"
     follow-redirects "^1.15.2"
@@ -2302,9 +2302,9 @@ defer-to-connect@^2.0.1:
   integrity sha512-4tvttepXG1VaYGrRibk5EwJd1t4udunSOVMdLSAL6mId1ix438oPwPZMALY41FCijukO1L0twNcGsdzS7dHgDg==
 
 define-data-property@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/define-data-property/-/define-data-property-1.0.1.tgz#37589faaa735405b557fcb9537b46b575655c4cb"
-  integrity sha512-22M+6zEspQHx10bfFQl2ET39IvfuQ7+rZIH7+ard8fCC4hPmkOSy+8JhKxBRLaWUziJ0O63NTYT97LR8zUfPTw==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/define-data-property/-/define-data-property-1.1.0.tgz#0db13540704e1d8d479a0656cf781267531b9451"
+  integrity sha512-UzGwzcjyv3OtAvolTj1GoyNYzfFR+iqbGjcnBEENZVCpM4/Ng1yhGNvS3lR/xDS74Tb2wGG9WzNSNIOS9UVb2g==
   dependencies:
     get-intrinsic "^1.2.1"
     gopd "^1.0.1"
@@ -2434,9 +2434,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.4.477:
-  version "1.4.519"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.519.tgz#01b9bc3f1bb50c4971bdd1eeca6d9a73575bd581"
-  integrity sha512-kqs9oGYL4UFVkLKhqCTgBCYZv+wZ374yABDMqlDda9HvlkQxvSr7kgf4hfWVjMieDbX+1MwPHFBsOGCMIBaFKg==
+  version "1.4.520"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.520.tgz#c19c25a10d87bd88a9aae2b76cae9235a50c2994"
+  integrity sha512-Frfus2VpYADsrh1lB3v/ft/WVFlVzOIm+Q0p7U7VqHI6qr7NWHYKe+Wif3W50n7JAFoBsWVsoU0+qDks6WQ60g==
 
 emittery@^0.8.1:
   version "0.8.1"
@@ -5953,11 +5953,12 @@ set-blocking@^2.0.0:
   integrity sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==
 
 set-function-name@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/set-function-name/-/set-function-name-2.0.0.tgz#e59e53e7fa23f9c2da1c0999fa202d5ed09c4756"
-  integrity sha512-WmS8UHojv5s1eSoRSmzO5zzgDq8PE1/X/ij0k+9fMYmINCc6+j+SF3Om8YyucKn2yjnK4ItNZOoQycNnHsZJTw==
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/set-function-name/-/set-function-name-2.0.1.tgz#12ce38b7954310b9f61faa12701620a0c882793a"
+  integrity sha512-tMNCiqYVkXIZgc2Hnoy2IvC/f8ezc5koaRFkCjrpWzGpCd3qbZXPzVy9MAZzK1ch/X0jvSkojys3oqJN0qCmdA==
   dependencies:
     define-data-property "^1.0.1"
+    functions-have-names "^1.2.3"
     has-property-descriptors "^1.0.0"
 
 shebang-command@^2.0.0:
