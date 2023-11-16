@@ -25,15 +25,8 @@
       "type": "build"
     },
     {
-      "name": "cdk8s",
-      "type": "build"
-    },
-    {
       "name": "constructs",
-      "type": "build"
-    },
-    {
-      "name": "eslint-import-resolver-node",
+      "version": "^10.0.0",
       "type": "build"
     },
     {
