@@ -29,7 +29,7 @@ test('invalid app command', async () => {
 test('invalid input', async () => {
   server = new Server({ appCommand: ECHO_APP });
   const port = await server.listen();
-  await expectError(httpPost(port, 'INVALID JSON'), 'Internal Server Error: unable to parse request body as JSON: SyntaxError: Unexpected token I in JSON at position 0');
+  await expectError(httpPost(port, 'INVALID JSON'), 'Internal Server Error: unable to parse request body as JSON: SyntaxError: Unexpected token \'I\', \"INVALID JSON\" is not valid JSON');
 });
 
 async function expectError<T>(promise: Promise<T>, expected: string) {
