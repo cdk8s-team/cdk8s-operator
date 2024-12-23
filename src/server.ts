@@ -44,7 +44,7 @@ export class Server {
           throw new Error(`cannot determine port from server address ${addr}`);
         }
 
-        return ok(addr?.port);
+        return ok(addr?.port ?? Number(lport));
       });
 
       this.server.on('error', err => ko(err));
