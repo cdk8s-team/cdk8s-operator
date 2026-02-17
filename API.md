@@ -31,6 +31,7 @@ new Operator(props?: OperatorProps)
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#cdk8s-operator.Operator.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk8s-operator.Operator.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#cdk8s-operator.Operator.synth">synth</a></code> | Reads a Kubernetes manifest in JSON format from STDIN or the file specified as the first positional command-line argument. |
 | <code><a href="#cdk8s-operator.Operator.synthYaml">synthYaml</a></code> | Synthesizes the app into a YAML string. |
 | <code><a href="#cdk8s-operator.Operator.addProvider">addProvider</a></code> | Adds a custom resource provider to this operator. |
@@ -44,6 +45,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="cdk8s-operator.Operator.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="cdk8s-operator.Operator.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `synth` <a name="synth" id="cdk8s-operator.Operator.synth"></a>
 
