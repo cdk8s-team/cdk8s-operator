@@ -73,7 +73,7 @@
     "constructs": "^10"
   },
   "dependencies": {
-    "yaml": "^1.10.2"
+    "yaml": "^1.10.3"
   },
   "bundledDependencies": [
     "yaml"
