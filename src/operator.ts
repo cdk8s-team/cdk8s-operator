@@ -93,9 +93,9 @@ export class Operator extends App {
     let write;
     if (this.outputFile) {
       const outfile = this.outputFile;
-      write = (data: Buffer) => fs.writeFileSync(outfile, data);
+      write = (data: Uint8Array) => fs.writeFileSync(outfile, data);
     } else {
-      write = (data: Buffer) => process.stdout.write(data);
+      write = (data: Uint8Array) => process.stdout.write(data);
     }
 
     if (typeof(input) !== 'object') {
@@ -124,7 +124,7 @@ export class Operator extends App {
     for (const file of fs.readdirSync(this.outdir)) {
       const filepath = path.join(this.outdir, file);
       const manifest = fs.readFileSync(filepath);
-      write(manifest);
+      write(new Uint8Array(manifest));
     }
   }
 
