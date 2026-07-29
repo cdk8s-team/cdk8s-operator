@@ -7,7 +7,7 @@ permissions-backup.acl
 /dist/changelog.md
 /dist/version.txt
 /test/
-/tsconfig.dev.json
+/test/tsconfig.json
 /src/
 !/lib/
 !/lib/**/*.js
@@ -17,8 +17,8 @@ dist
 /.github/
 /.vscode/
 /.idea/
-/.projenrc.js
 tsconfig.tsbuildinfo
 /.eslintrc.json
 !.jsii
 /.gitattributes
+/.projenrc.js

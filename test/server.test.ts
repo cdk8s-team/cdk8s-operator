@@ -33,7 +33,7 @@ test('invalid input', async () => {
 });
 
 async function expectError<T>(promise: Promise<T>, expected: string) {
-  let error;
+  let error: any;
   try {
     await promise;
   } catch (e) {
