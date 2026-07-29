@@ -1,4 +1,8 @@
 {
+  "manifestVersion": 3,
+  "env": {
+    "PATH": "$(npx -c \"node --print process.env.PATH\")"
+  },
   "tasks": {
     "build": {
       "name": "build",
@@ -33,15 +37,36 @@
         "BUMPFILE": "dist/version.txt",
         "RELEASETAG": "dist/releasetag.txt",
         "RELEASE_TAG_PREFIX": "",
-        "BUMP_PACKAGE": "commit-and-tag-version@^12",
-        "RELEASABLE_COMMITS": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep \"^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+\" --grep 'chore\\(deps\\): upgrade runtime dependencies' --grep 'chore\\(deps\\): upgrade compiler dependencies'"
+        "BUMP_PACKAGE": "commit-and-tag-version@^12"
       },
       "steps": [
         {
-          "builtin": "release/bump-version"
+          "builtin": "release/resolve-latest-tag",
+          "outputEnv": "LATEST_TAG"
+        },
+        {
+          "spawn": "bump:releasable-commits",
+          "outputEnv": "RELEASABLE_COMMITS",
+          "condition": "git rev-parse --verify --quiet \"refs/tags/$LATEST_TAG\""
+        },
+        {
+          "builtin": "release/suggest-version-bump",
+          "outputEnv": "SUGGESTED_BUMP"
+        },
+        {
+          "builtin": "release/apply-version-bump"
         }
       ],
-      "condition": "git log --oneline -1 | grep -qv \"chore(release):\""
+      "condition": "git log --oneline -1 | grep -v \"chore(release):\" > /dev/null"
+    },
+    "bump:releasable-commits": {
+      "name": "bump:releasable-commits",
+      "description": "Print the releasable commits since the latest release",
+      "steps": [
+        {
+          "exec": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep '^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+' --grep 'chore\\(deps\\): upgrade runtime dependencies' --grep 'chore\\(deps\\): upgrade compiler dependencies'"
+        }
+      ]
     },
     "clobber": {
       "name": "clobber",
@@ -98,7 +123,10 @@
       "description": "Synthesize project files",
       "steps": [
         {
-          "exec": "node .projenrc.js"
+          "execArgs": [
+            "node",
+            ".projenrc.js"
+          ]
         }
       ]
     },
@@ -107,7 +135,11 @@
       "description": "Generate API.md from .jsii manifest",
       "steps": [
         {
-          "exec": "jsii-docgen -o API.md"
+          "execArgs": [
+            "jsii-docgen",
+            "-o",
+            "API.md"
+          ]
         }
       ]
     },
@@ -195,7 +227,12 @@
       "description": "Create dotnet language bindings",
       "steps": [
         {
-          "exec": "jsii-pacmak -v --target dotnet"
+          "execArgs": [
+            "jsii-pacmak",
+            "-v",
+            "--target",
+            "dotnet"
+          ]
         }
       ]
     },
@@ -204,7 +241,12 @@
       "description": "Create go language bindings",
       "steps": [
         {
-          "exec": "jsii-pacmak -v --target go"
+          "execArgs": [
+            "jsii-pacmak",
+            "-v",
+            "--target",
+            "go"
+          ]
         }
       ]
     },
@@ -213,7 +255,12 @@
       "description": "Create java language bindings",
       "steps": [
         {
-          "exec": "jsii-pacmak -v --target java"
+          "execArgs": [
+            "jsii-pacmak",
+            "-v",
+            "--target",
+            "java"
+          ]
         }
       ]
     },
@@ -222,7 +269,12 @@
       "description": "Create js language bindings",
       "steps": [
         {
-          "exec": "jsii-pacmak -v --target js"
+          "execArgs": [
+            "jsii-pacmak",
+            "-v",
+            "--target",
+            "js"
+          ]
         }
       ]
     },
@@ -231,7 +283,12 @@
       "description": "Create python language bindings",
       "steps": [
         {
-          "exec": "jsii-pacmak -v --target python"
+          "execArgs": [
+            "jsii-pacmak",
+            "-v",
+            "--target",
+            "python"
+          ]
         }
       ]
     },
@@ -307,8 +364,7 @@
         "BUMPFILE": "dist/version.txt",
         "RELEASETAG": "dist/releasetag.txt",
         "RELEASE_TAG_PREFIX": "",
-        "BUMP_PACKAGE": "commit-and-tag-version@^12",
-        "RELEASABLE_COMMITS": "git log --no-merges --oneline $LATEST_TAG..HEAD -E --grep \"^(feat|fix){1}(\\([^()[:space:]]+\\))?(!)?:[[:blank:]]+.+\" --grep 'chore\\(deps\\): upgrade runtime dependencies' --grep 'chore\\(deps\\): upgrade compiler dependencies'"
+        "BUMP_PACKAGE": "commit-and-tag-version@^12"
       },
       "steps": [
         {
@@ -324,13 +380,30 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev --filter=jsii,jsii-docgen,jsii-pacmak,jsii-rosetta,typescript"
+          "execArgs": [
+            "npx",
+            "npm-check-updates@20",
+            "--upgrade",
+            "--target=minor",
+            "--peer",
+            "--no-deprecated",
+            "--dep=dev",
+            "--filter=jsii,jsii-docgen,jsii-pacmak,jsii-rosetta,typescript"
+          ]
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade jsii jsii-docgen jsii-pacmak jsii-rosetta typescript"
+          "execArgs": [
+            "yarn",
+            "upgrade",
+            "jsii",
+            "jsii-docgen",
+            "jsii-pacmak",
+            "jsii-rosetta",
+            "typescript"
+          ]
         },
         {
           "exec": "npx projen"
@@ -348,13 +421,27 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev --filter=projen,@cdk8s/projen-common"
+          "execArgs": [
+            "npx",
+            "npm-check-updates@20",
+            "--upgrade",
+            "--target=minor",
+            "--peer",
+            "--no-deprecated",
+            "--dep=dev",
+            "--filter=projen,@cdk8s/projen-common"
+          ]
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade projen @cdk8s/projen-common"
+          "execArgs": [
+            "yarn",
+            "upgrade",
+            "projen",
+            "@cdk8s/projen-common"
+          ]
         },
         {
           "exec": "npx projen"
@@ -372,13 +459,40 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=dev --filter=@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,ts-jest,yaml"
+          "execArgs": [
+            "npx",
+            "npm-check-updates@20",
+            "--upgrade",
+            "--target=minor",
+            "--peer",
+            "--no-deprecated",
+            "--dep=dev,prod",
+            "--filter=@types/jest,eslint-import-resolver-typescript,eslint-plugin-import,jest,jsii-diff,ts-jest,yaml"
+          ]
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @stylistic/eslint-plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit jsii-diff ts-jest yaml"
+          "execArgs": [
+            "yarn",
+            "upgrade",
+            "@stylistic/eslint-plugin",
+            "@types/jest",
+            "@types/node",
+            "@typescript-eslint/eslint-plugin",
+            "@typescript-eslint/parser",
+            "commit-and-tag-version",
+            "constructs",
+            "eslint-import-resolver-typescript",
+            "eslint-plugin-import",
+            "eslint",
+            "jest",
+            "jest-junit",
+            "jsii-diff",
+            "ts-jest",
+            "yaml"
+          ]
         },
         {
           "exec": "npx projen"
@@ -396,13 +510,26 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@20 --upgrade --target=minor --peer --no-deprecated --dep=prod,optional --filter=yaml"
+          "execArgs": [
+            "npx",
+            "npm-check-updates@20",
+            "--upgrade",
+            "--target=minor",
+            "--peer",
+            "--no-deprecated",
+            "--dep=prod,optional",
+            "--filter=yaml"
+          ]
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade yaml"
+          "execArgs": [
+            "yarn",
+            "upgrade",
+            "yaml"
+          ]
         },
         {
           "exec": "npx projen"
@@ -421,9 +548,6 @@
         }
       ]
     }
-  },
-  "env": {
-    "PATH": "$(npx -c \"node --print process.env.PATH\")"
   },
   "//": "~~ Generated by projen. To modify, edit .projenrc.js and run \"npx projen\"."
 }

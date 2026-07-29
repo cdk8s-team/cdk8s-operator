@@ -15,7 +15,7 @@
     },
     {
       "name": "@types/node",
-      "version": "16.18.78",
+      "version": "^18",
       "type": "build"
     },
     {
@@ -98,11 +98,6 @@
     {
       "name": "yaml",
       "type": "bundled"
-    },
-    {
-      "name": "**/downlevel-dts/**/typescript",
-      "version": "~5.2.2",
-      "type": "override"
     },
     {
       "name": "cdk8s",
