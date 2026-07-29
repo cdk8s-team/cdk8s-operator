@@ -67,7 +67,7 @@
     "jsii-rosetta": "~5.9.0",
     "projen": "^0.101.22",
     "ts-jest": "^27",
-    "typescript": "~5.9.0"
+    "typescript": "~5.9.3"
   },
   "peerDependencies": {
     "cdk8s": "^2.68.91",
