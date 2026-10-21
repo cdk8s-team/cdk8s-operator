@@ -1787,9 +1787,9 @@ dunder-proto@^1.0.0, dunder-proto@^1.0.1:
     gopd "^1.2.0"
 
 electron-to-chromium@^1.5.459:
-  version "1.5.460"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.460.tgz#660199a60422c9d6c8b6a17965ecb06c5cfe4e05"
-  integrity sha512-rRaVC7bNUyGsL+GMtmZfv3AfgG6za7gE9v5bT0PIbjEerddA0IQ+tCK05NFAXqCpNlrxBZqbFqquyxHRQONHTA==
+  version "1.5.463"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.463.tgz#c50be24baa76934f377198071e76b53e9685a301"
+  integrity sha512-nVWNU6ltFjopvOdD44J4zoBkgO0M+WZiFKKFV7EjebOH9z0KNphk6bCEjplXtJofL21ARIuuwWOCsFkBVklm6w==
 
 emittery@^0.8.1:
   version "0.8.1"
