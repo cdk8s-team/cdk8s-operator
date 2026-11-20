@@ -4,6 +4,8 @@
 
 ### Operator <a name="Operator" id="cdk8s-operator.Operator"></a>
 
+- *Implements:* constructs.IConstruct, constructs.IDependable
+
 A CDK8s app which allows implementing Kubernetes operators using CDK8s constructs.
 
 #### Initializers <a name="Initializers" id="cdk8s-operator.Operator.Initializer"></a>
